@@ -1,0 +1,27 @@
+Enter your CSV into the text area below, click 'Convert to LaTeX' then 'Render LaTeX'
+
+<textarea cols=120 rows=10 name="ta" id="ta">
+</textarea>
+<br />
+
+<center><input type='button' id='button' value='Convert to LaTeX'></input></center>
+
+
+<br />
+
+<textarea cols=120 rows=10 name="op" id="op">
+</textarea>
+
+<br />
+
+<center><input type='button' id='opButton' value='Render LaTeX'></input></center>
+
+<br />
+
+<p id='rendered'></p>
+
+<script src="lib/polyfill.min.js?features=es6"></script>
+<script src="lib/tex-mml-chtml.js"</script>
+<script src="lib/bclib-staging.js"></script>
+<script src="lib/bclib.js"></script>
+<script src="script.js"></script>

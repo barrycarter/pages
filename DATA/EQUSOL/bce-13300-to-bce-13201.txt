@@ -1,0 +1,20 @@
+# Author: Barry Carter (astronomer@barrycarter.info)
+#
+# This file is one of many that together list all equinoxes and solstices
+# approximately +-15000 years from now. Seasons refer to northern
+# hemisphere and are reversed in the southern hemisphere.
+#
+# All times UTC
+#
+# More information at:
+#
+# (note that code below only computes equinoxes, but similar code was used 
+# to compute solstices)
+#
+# https://github.com/barrycarter/bcapps/tree/master/STACK/bc-solve-astro-13008.c
+#
+# https://github.com/barrycarter/bcapps/tree/master/ASTRO/
+#
+# https://astronomy.stackexchange.com/questions/13008/are-there-accurate-
+#
+BCE 13201-10-08 13:12 SUMMER SOLSTICE
