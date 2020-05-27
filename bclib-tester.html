@@ -34,14 +34,13 @@ let maps = [];
 
 maps['osmMap'] = {map: map, fake: 1, projection: 1, opacity: 0.5, minZoom: 4, bounded: 1, tileURL: "https://a.tile.openstreetmap.org/${z}/${x}/${y}.png"};
 
-maps['tzMap'] = {map: map, opacity: 0.5, width:65536, height:32768, origTileZoom: 8, maxZoom: 8, fake: 1, tileURL: "http://ws.terramapadventure.com/TIMEZONES/${z}/${x}/${y}.png"};
+maps['tzMap'] = {map: map, opacity: 0.5, width:65536, height:32768, origTileZoom: 8, maxZoom: 8, fake: 1, tileURL: "'http://barrycarter.github.io/pages/images/TIMEZONES/${z}/${x}/${y}.png"};
 
 maps['infoMap'] = {map: map, projection: 1, opacity: 0.5, fake: 1, tileURL: "http://test.barrycarter.info/bc-mytile3.pl?/${z}/${x}/${y}.png"};
 
 maps['climateMap'] = {map: map, opacity: 1, width: 43200, height: 21600, origTileZoom: 8, opacity: 0.5, maxZoom: 8, fake: 1, tileURL: 'https://barrycarter.github.io/pages/images/CLIMATE/${z}/${x}/${y}.png'};
 
-maps['landUseMap'] = {map: map, opacity: 0.5, width: 129600, fake: 1, height: 64800, origTileZoom: 9, maxZoom: 9, tileURL: 'http://ws.terramapadventure.com/LANDUSE/${z}/${x}/${y}.png'};
-
+maps['landUseMap'] = {map: map, opacity: 0.5, width: 129600, fake: 1, height: 64800, origTileZoom: 9, maxZoom: 9, tileURL: 'http://barrycarter.github.io/pages/images/LANDUSE/${z}/${x}/${y}.png'};
 
 for (var key in maps) {
   document.getElementById(key).addEventListener('change', update);
