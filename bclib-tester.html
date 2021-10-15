@@ -11,8 +11,14 @@ OSM: <input type="checkbox" id="osmMap" value="false">
 Time zones: <input type="checkbox" id="tzMap" value="false">
 <input type="range" id="tzMap.o" min="0" max="1" step="0.01"><br>
 
+<!--
+
+Grid requires external server, so disabled
+ 
 Grid: <input type="checkbox" id="infoMap" value="false">
 <input type="range" id="infoMap.o" min="0" max="1" step="0.01"><br>
+
+--> 
 
 Climate: <input type="checkbox" id="climateMap" value="false">
 <input type="range" id="climateMap.o" min="0" max="1" step="0.01"><br>
@@ -34,11 +40,13 @@ let maps = [];
 
 maps['osmMap'] = {map: map, fake: 1, projection: 1, opacity: 0.5, minZoom: 4, bounded: 1, tileURL: "https://a.tile.openstreetmap.org/${z}/${x}/${y}.png"};
 
-maps['tzMap'] = {map: map, opacity: 0.5, width:65536, height:32768, origTileZoom: 8, maxZoom: 8, fake: 1, tileURL: "'http://barrycarter.github.io/pages/images/TIMEZONES/${z}/${x}/${y}.png"};
+maps['tzMap'] = {map: map, opacity: 0.5, width:65536, height:32768, origTileZoom: 8, maxZoom: 8, fake: 1, tileURL: "http://barrycarter.github.io/pages/images/TIMEZONES/${z}/${x}/${y}.png"};
 
-maps['infoMap'] = {map: map, projection: 1, opacity: 0.5, fake: 1, tileURL: "http://test.barrycarter.info/bc-mytile3.pl?/${z}/${x}/${y}.png"};
+// this map requires external server, disabled
 
-maps['climateMap'] = {map: map, opacity: 1, width: 43200, height: 21600, origTileZoom: 8, opacity: 0.5, maxZoom: 8, fake: 1, tileURL: 'https://barrycarter.github.io/pages/images/CLIMATE/${z}/${x}/${y}.png'};
+// maps['infoMap'] = {map: map, projection: 1, opacity: 0.5, fake: 1, tileURL: "http://test.barrycarter.info/bc-mytile3.pl?/${z}/${x}/${y}.png"};
+
+maps['climateMap'] = {map: map, opacity: 1, width: 43200, height: 21600, origTileZoom: 8, opacity: 0.5, maxZoom: 8, fake: 1, tileURL: "https://barrycarter.github.io/pages/images/CLIMATE/${z}/${x}/${y}.png"};
 
 maps['landUseMap'] = {map: map, opacity: 0.5, width: 129600, fake: 1, height: 64800, origTileZoom: 9, maxZoom: 9, tileURL: 'http://barrycarter.github.io/pages/images/LANDUSE/${z}/${x}/${y}.png'};
 
@@ -158,7 +166,7 @@ function redraw_map() {
   // the OSM map (comes first so others can overlay)
   placeTilesOnMap(maps['osmMap']);
   placeImageTilesOnMap(maps['tzMap']);
-  placeTilesOnMap(maps['infoMap']);
+//  placeTilesOnMap(maps['infoMap']);
   placeImageTilesOnMap(maps['climateMap']);
   placeImageTilesOnMap(maps['landUseMap']);
   

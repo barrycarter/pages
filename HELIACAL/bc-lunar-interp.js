@@ -1,4 +1,4 @@
-# units are microradians
+// units are microradians
 
 let lunarDecInterp = 
 {minX: 1420070453, maxX: 1735689591, intLength: 54000, 
