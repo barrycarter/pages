@@ -1,0 +1,8 @@
+new
+size 256,256
+setpixel 0,0,0,0,0
+transparent 0,0,0
+setpixel 180,23,255,0,0
+circle 180,23,5,255,0,0
+setpixel 158,230,255,0,0
+circle 158,230,5,255,0,0

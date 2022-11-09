@@ -366,13 +366,13 @@ function lngLatRange2ImageTiles(obj) {
 
 /**
 
-Converts a slippy tile to a latitude and longitude value:
-
-Input object:
+Converts a slippy tile or an equirectangular tile to a latitude and longitude:
 
 z: tile zoom value
 x: tile x value (may be fractional, 0 = left edge of tile, 0.5 = middle of leftmost pixel)
 y: tile y value (may be fractional, 0 = top edge of tile, 0.5 = middle of top pixel of tile)
+
+projection: if 1, Mercator project, otherwise equirectangular project
 
 Output object:
 

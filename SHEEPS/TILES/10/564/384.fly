@@ -1,0 +1,26 @@
+new
+size 256,256
+setpixel 0,0,0,0,0
+transparent 0,0,0
+setpixel 14,41,255,0,0
+circle 14,41,5,255,0,0
+setpixel 143,80,255,0,0
+circle 143,80,5,255,0,0
+setpixel 31,236,255,0,0
+circle 31,236,5,255,0,0
+setpixel 9,172,255,0,0
+circle 9,172,5,255,0,0
+setpixel 23,249,255,0,0
+circle 23,249,5,255,0,0
+setpixel 143,81,255,0,0
+circle 143,81,5,255,0,0
+setpixel 201,105,255,0,0
+circle 201,105,5,255,0,0
+setpixel 31,234,255,0,0
+circle 31,234,5,255,0,0
+setpixel 31,160,255,0,0
+circle 31,160,5,255,0,0
+setpixel 121,56,255,0,0
+circle 121,56,5,255,0,0
+setpixel 48,219,255,0,0
+circle 48,219,5,255,0,0
