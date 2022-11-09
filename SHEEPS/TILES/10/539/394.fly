@@ -2,9 +2,6 @@ new
 size 256,256
 setpixel 0,0,0,0,0
 transparent 0,0,0
-setpixel 232,113,255,0,0
-circle 232,113,5,255,0,0
-setpixel 215,108,255,0,0
-circle 215,108,5,255,0,0
-setpixel 9,216,255,0,0
-circle 9,216,5,255,0,0
+fcircle 232,113,5,201,41,3
+fcircle 215,108,5,201,41,3
+fcircle 9,216,5,201,41,3

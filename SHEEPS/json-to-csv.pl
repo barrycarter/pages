@@ -14,6 +14,13 @@ my($degree) = $pi/180;
 
 my(%hash); 
 
+# colors based on age (1st elt is 1.0-13.0 days, then 13.0-25.0 days,
+# and increasing by 12 until 121
+
+my(@colors) = ("122,4,3", "201,41,3", "245,105,23", "251,185,56",
+	       "201,239,52", "116,254,93", "26,229,182", "53,171,249",
+	       "70,98,216", "48,18,59");
+
 for $i (glob("../data/*.js")) {
 
     debug("I: $i");
@@ -34,19 +41,22 @@ for $i (glob("../data/*.js")) {
 
 	my($lng, $lat) = @{$j->{geometry}->{coordinates}};
 
+	my($age) = $j->{properties}->{DaysOld};
+	my($color) = $colors[floor(($age-1)/12)];
+
+	# find color index from age
+#	debug(floor(($age-1)/12));
+
 	# create tiles to level 6
 
 	for $z (0..10) {
 	    my($x, $y, $px, $py) = @{lnglatZ2TileXY($lng, $lat, $z)};
 
 	    # this is truly hideous, but it works
-	    $hash{$z}{$x}{$y}{"$px,$py"} = "red";
+	    $hash{$z}{$x}{$y}{"$px,$py"} = $color;
 
 	}
     }
-
-#    warn("READING ONLY ONE FILE DURING TESTING"); last;
-
 }
 
 # create the tiles but make sure there's a dir to hold them
@@ -70,8 +80,11 @@ for $z (keys %hash) {
 	    print A "new\nsize 256,256\nsetpixel 0,0,0,0,0\ntransparent 0,0,0\n";
 
 	    for $pt (keys %{$hash{$z}{$x}{$y}}) {
-		print A "setpixel $pt,255,0,0\n";
-		print A "circle $pt,5,255,0,0\n";
+
+		my($color) = $hash{$z}{$x}{$y}{$pt};
+#		debug("COLOR BETA: $color");
+#		print A "setpixel $pt,$color\n";
+		print A "fcircle $pt,5,$color\n";
 	    }
 	    close(A);
 	}
