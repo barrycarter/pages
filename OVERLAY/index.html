@@ -16,11 +16,6 @@ for (i of location.search.replace("?","").split("&")) {
 
   opts[key] = val;
 
-//  if (key == "center") {map.setView(val.split(",")); next;}
-
-//  if (key == "zoom") {map.setZoom(val); next;}
-
-  console.log("ALPHA",key,val);
 }
 
 // set default values (copied from bc-image-overlay-nokml.pl)
@@ -29,9 +24,22 @@ for (i of location.search.replace("?","").split("&")) {
 
 // change n and s to +-85 to avoid odd Merctaor stretching
 
-opts = mergeHashes(opts, str2hash("center=0,0&zoom=2&s=-85&n=85&e=180&w=-180&keypos=LEFT_BOTTOM&opacity=0.5&rotateControl=true&scaleControl=true&overviewMapControl=true"));
+opts = mergeHashes(opts, str2hash("center=0,0&zoom=2&s=-85&n=85&e=180&w=-180&keypos=LEFT_BOTTOM&opacity=0.5&rotateControl=true&scaleControl=true&overviewMapControl=true&proj=merc"));
 
-var map = L.map('map').setView(opts["center"].split(","), opts["zoom"]);
+// proj can be merc (default) or simple (Plate-Carree)
+
+crs = L.CRS.EPSG3857;
+
+if (opts["proj"] eq "simple") {crs = L.CRS.Simple;}
+
+console.log("PROJ", crs);
+
+var map = L.map('map', {crs: L.CRS.Simple});
+
+map.fitBounds([[-90, -180], [90, 180]]);
+
+
+map.setView(opts["center"].split(","), opts["zoom"]);
 
 var layer = L.tileLayer('https://a.tile.openstreetmap.org/{z}/{x}/{y}.png');
 
@@ -42,8 +50,6 @@ if (opts["url"]) {
 }
 
 layer.addTo(map);
-
-console.log("ALPHA", opts);
 
 // set the view based on the opts
 
